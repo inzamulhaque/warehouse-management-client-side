@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../images/hgs2.jpg';
-import menu from '../../images/icons/menu.png';
-import close from '../../images/icons/close.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
+import { faToggleOff, faToggleOn, faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +18,7 @@ const Header = () => {
 
     return (
         <>
-            <header className='w-full container mx-auto'>
+            <header className='w-full container mx-auto z-50'>
                 <nav className="flex items-center py-2 justify-between px-1">
                     <div>
                         <Link to="/" className='flex items-center'>
@@ -31,8 +29,8 @@ const Header = () => {
                     <div>
                         {/* add open and closing menu icons */}
                         {
-                            menuOpen ? <img onClick={() => setMenuOpen(!menuOpen)} src={close} alt="menu icon" className='w-[30px] h-[30px] lg:hidden inline dark:bg-white' /> :
-                                <img onClick={() => setMenuOpen(!menuOpen)} src={menu} alt="menu icon" className='w-[30px] h-[30px] lg:hidden inline dark:bg-white' />
+                            menuOpen ? <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faXmark} className='w-[30px] h-[30px] lg:hidden inline dark:text-white' /> :
+                                <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faBars} className='w-[30px] h-[30px] lg:hidden inline dark:text-white' />
                         }
 
                         <ul className={`text-white dark:text-white text-[18px] lg:flex items-center lg:top-0 lg:relative font-semibold absolute duration-300 ease-in-out ${menuOpen ? "top-15 bg-black left-0 w-full text-left px-5 py-7 w-full block" : "top-[-300px] hidden"}`}>
