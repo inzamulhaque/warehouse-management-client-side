@@ -6,6 +6,34 @@ import auth from '../../firebase.init';
 const AddItem = () => {
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
+
+    const handleAddItem = event => {
+        event.preventDefault();
+        const email = user.email;
+        const name = event.target.name.value;
+        const sname = event.target.sname.value;
+        const category = event.target.category.value;
+        const price = event.target.price.value;
+        const quantity = event.target.quantity.value;
+        const image = event.target.image.value;
+        const description = event.target.description.value;
+
+        const item = { email, name, sname, category, price, quantity, image, description };
+
+        fetch("http://localhost:5000/additem", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(item)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+        event.target.reset();
+    }
+
     return (
         <>
             <div className="container mx-auto">
@@ -19,10 +47,12 @@ const AddItem = () => {
                 <div className="mt-3 w-full md:w-3/4 lg:w-1/2 mx-auto card dark:bg-white py-2">
                     <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Add New Item</h3>
 
-                    <form className="p-3 md:px-5 lg:px-7">
+                    <form onSubmit={handleAddItem} className="p-3 md:px-5 lg:px-7">
                         <input name="name" type="text" placeholder='Enter Item Name*' className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' required />
 
                         <input name="sname" type="text" placeholder='Enter Item Supplier Name*' className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' required />
+
+                        <input name="category" type="text" placeholder='Enter Item Category*' className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' required />
 
                         <input name="price" type="number" placeholder='Enter Item Price*' className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' required />
 
