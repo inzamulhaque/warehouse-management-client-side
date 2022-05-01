@@ -9,6 +9,10 @@ const Home = () => {
             <MyCarousel />
             {/* add banner for tab and phone */}
             <Banner />
+            {/* add service section */}
+            <div>
+                <h1>our services</h1>
+            </div>
         </>
     );
 };

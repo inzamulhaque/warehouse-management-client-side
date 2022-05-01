@@ -3,10 +3,15 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../images/hgs2.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToggleOff, faToggleOn, faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [dark, setDark] = useState("light");
+
+    const [user, loading, error] = useAuthState(auth);
 
     useEffect(() => {
         const html = window.document.documentElement;
@@ -40,20 +45,26 @@ const Header = () => {
                             <li className="py-2 px-3">
                                 <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/">Home</NavLink>
                             </li>
-                            <li className="py-2 px-3">
-                                <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/manageitems">Manage Items</NavLink>
-                            </li>
-                            <li className="py-2 px-3">
-                                <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/additem">Add Item</NavLink>
-                            </li>
-                            <li className="py-2 px-3">
-                                <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/myitems">My items</NavLink>
-                            </li>
+                            {user &&
+                                <>
+                                    <li className="py-2 px-3">
+                                        <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/manageitems">Manage Items</NavLink>
+                                    </li>
+                                    <li className="py-2 px-3">
+                                        <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/additem">Add Item</NavLink>
+                                    </li>
+                                    <li className="py-2 px-3">
+                                        <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/myitems">My items</NavLink>
+                                    </li>
+                                </>
+                            }
                             <li className="py-2 px-3">
                                 <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/blogs">Blogs</NavLink>
                             </li>
                             <li className="py-2 px-3">
-                                <button className="text-red-500 font-bold">SignOut</button>
+                                {
+                                    user ? <button className="text-red-500 font-bold" onClick={() => signOut(auth)}>SignOut</button> : <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/signin">Sign In</NavLink>
+                                }
                             </li>
                         </ul>
                     </div>
