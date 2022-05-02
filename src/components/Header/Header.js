@@ -9,7 +9,7 @@ import { signOut } from 'firebase/auth';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [dark, setDark] = useState("light");
+    const [dark, setDark] = useState(localStorage.getItem("dark") || "light");
 
     const [user, loading, error] = useAuthState(auth);
 
@@ -18,6 +18,7 @@ const Header = () => {
         html.classList.remove("light");
         html.classList.remove("dark");
         html.classList.add(dark);
+        localStorage.setItem("dark", dark);
 
     }, [dark]);
 
