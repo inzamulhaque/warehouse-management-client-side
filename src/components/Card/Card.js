@@ -4,7 +4,7 @@ const Card = ({ item, children }) => {
     const { name, sname, category, price, quantity, image, description } = item || {};
     return (
         <>
-            <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto">
+            <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto w-full">
                 <div className="w-[125px] h-[150px] mx-auto">
                     <img src={image} alt="Item Image" className="h-[150px]" />
                 </div>
