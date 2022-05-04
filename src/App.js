@@ -10,6 +10,7 @@ import SignIn from './components/SignForms/SignIn';
 import ResetPass from './components/SignForms/ResetPass';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import AddItem from './components/AddItem/AddItem';
+import ManageItems from './components/ManageItems/ManageItems';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         {/* add routes */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/manageitems" element={<RequireAuth>
+            <ManageItems />
+          </RequireAuth>} />
           <Route path="/additem" element={<RequireAuth>
             <AddItem />
           </RequireAuth>} />
