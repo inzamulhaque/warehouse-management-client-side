@@ -12,7 +12,7 @@ const Home = () => {
             <Banner />
             {/* add service section */}
             <div className='container mx-auto my-3'>
-                <h3 className='dark:text-white text-[25px] font-bold text-center text-blue-500'>Items</h3>
+                <h3 className='dark:text-white text-[25px] font-bold text-center text-blue-500 mb-2'>Items</h3>
                 <Testimonilas />
             </div>
         </>
