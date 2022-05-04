@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Card = ({ item }) => {
-    const { email, name, sname, category, price, quantity, image, description } = item || {};
+const Card = ({ item, children }) => {
+    const { _id, email, name, sname, category, price, quantity, image, description } = item || {};
     return (
         <>
             <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto">
@@ -15,6 +15,7 @@ const Card = ({ item }) => {
                     <p className="tex-[18px] font-medium">Quantity: {quantity}</p>
                     <p className="tex-[18px] font-medium">Supplier Name: {sname}</p>
                     <p className="tex-[16px] font-normal">{description}</p>
+                    {children}
                 </div>
             </div>
         </>
