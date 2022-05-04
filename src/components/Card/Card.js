@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Card = ({ item, children }) => {
-    const { _id, email, name, sname, category, price, quantity, image, description } = item || {};
+    const { name, sname, category, price, quantity, image, description } = item || {};
     return (
         <>
             <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto">
