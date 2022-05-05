@@ -15,6 +15,7 @@ import AllItems from './components/AllItems/AllItems';
 import UpdateItem from './components/UpdateItem/UpdateItem';
 import UpdateQty from './components/UpdateQty/UpdateQty';
 import MyItems from './components/MyItems/MyItems';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/resetpass" element={<ResetPass />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <ToastContainer />
