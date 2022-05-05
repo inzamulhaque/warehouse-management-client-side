@@ -13,6 +13,7 @@ import AddItem from './components/AddItem/AddItem';
 import ManageItems from './components/ManageItems/ManageItems';
 import AllItems from './components/AllItems/AllItems';
 import UpdateItem from './components/UpdateItem/UpdateItem';
+import UpdateQty from './components/UpdateQty/UpdateQty';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           </RequireAuth>} />
           <Route path="/inventory/:id" element={<RequireAuth>
             <UpdateItem />
+          </RequireAuth>} />
+          <Route path="/inventoryQty/:id" element={<RequireAuth>
+            <UpdateQty />
           </RequireAuth>} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/resetpass" element={<ResetPass />} />

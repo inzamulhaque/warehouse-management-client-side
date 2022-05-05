@@ -6,31 +6,6 @@ const UpdateItem = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [updateCount, setUpdateCount] = useState(0);
-    // const [item, setItem] = useState({});
-    // const [info, setInfo] = useState({
-    //     email: "",
-    //     name: "",
-    //     sname: "",
-    //     price: 0,
-    //     quantity: 0,
-    //     image: "",
-    //     description: ""
-    // });
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/item/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setItem(data);
-    //             setInfo(data);
-    //         });
-    // }, [id, updateCount]);
-
-    // const handleChange = event => {
-    //     const name = event.target.name;
-    //     const value = event.target.value;
-    //     setInfo({ ...info, [name]: value });
-    // }
 
     const [info, handleChange] = useGetById(id, updateCount);
 

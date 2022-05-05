@@ -35,7 +35,7 @@ const SignIn = () => {
             <div className="mt-3 p-3 px-5 container mx-auto w-full md:3/4 lg:w-1/2 card dark:bg-white">
                 <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Sign In</h3>
                 {/* Sign In Form */}
-                <form onSubmit={handleSignIn} className='className="p-3 md:px-5 lg:px-7'>
+                <form onSubmit={handleSignIn} className='p-3 md:px-5 lg:px-7'>
 
                     <input name="email" type="email" placeholder='Enter Your Email*' className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' required />
 
