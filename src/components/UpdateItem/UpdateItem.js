@@ -1,35 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import useGetById from '../../hooks/useGetById';
 
 const UpdateItem = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [updateCount, setUpdateCount] = useState(0);
-    const [item, setItem] = useState({});
-    const [info, setInfo] = useState({
-        email: "",
-        name: "",
-        sname: "",
-        price: 0,
-        quantity: 0,
-        image: "",
-        description: ""
-    });
+    // const [item, setItem] = useState({});
+    // const [info, setInfo] = useState({
+    //     email: "",
+    //     name: "",
+    //     sname: "",
+    //     price: 0,
+    //     quantity: 0,
+    //     image: "",
+    //     description: ""
+    // });
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setItem(data);
-                setInfo(data);
-            });
-    }, [id, updateCount]);
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/item/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setItem(data);
+    //             setInfo(data);
+    //         });
+    // }, [id, updateCount]);
 
-    const handleChange = event => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInfo({ ...info, [name]: value });
-    }
+    // const handleChange = event => {
+    //     const name = event.target.name;
+    //     const value = event.target.value;
+    //     setInfo({ ...info, [name]: value });
+    // }
+
+    const [info, handleChange] = useGetById(id, updateCount);
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -54,7 +57,7 @@ const UpdateItem = () => {
                 <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Update Item</h3>
 
                 <form onSubmit={handleUpdate} className="p-3 md:px-5 lg:px-7">
-                    <input name="id" type="text" className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' required readOnly value={item._id} />
+                    <input name="id" type="text" className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' required readOnly value={info._id} />
 
                     <input name="email" type="email" placeholder='Enter Your Email*' className='w-full border-b-2 border-black focus:outline-none py-2 px-5 text-[22px] bg-transparent' value={info.email} onChange={handleChange} required />
 

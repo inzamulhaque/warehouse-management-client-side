@@ -11,7 +11,7 @@ const MyChart = () => {
             <div className="w-full md:w-3/4 lg:w-1/2 mx-auto">
                 <ResponsiveContainer width="100%" height={400}>
                     <LineChart
-                        width={500}
+                        width={300}
                         height={300}
                         data={sixProducts}
                         margin={{
