@@ -72,6 +72,9 @@ const UpdateItem = () => {
 
                     <button type="submit" className='py-2 px-7 bg-blue-500 text-white font-bold text-[22px] border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 duration-500 ease-in-out rounded-md mt-3 block md:inline-block mx-auto'>Update Item</button>
                 </form>
+                <div className="w-[200px] h-[200px] mx-auto mt-3">
+                    <img src={info.image} alt="Item Image" className="w-full h-full" />
+                </div>
             </div>
         </>
     );
