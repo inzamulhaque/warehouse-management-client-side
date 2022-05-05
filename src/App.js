@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SignIn from './components/SignForms/SignIn';
 import ResetPass from './components/SignForms/ResetPass';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import RequireAuthMyItems from './components/RequireAuth/RequireAuthMyItems';
 import AddItem from './components/AddItem/AddItem';
 import ManageItems from './components/ManageItems/ManageItems';
 import AllItems from './components/AllItems/AllItems';
@@ -39,9 +40,9 @@ function App() {
           <Route path="/inventoryQty/:id" element={<RequireAuth>
             <UpdateQty />
           </RequireAuth>} />
-          <Route path="/myitems" element={<RequireAuth>
+          <Route path="/myitems" element={<RequireAuthMyItems>
             <MyItems />
-          </RequireAuth>} />
+          </RequireAuthMyItems>} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/resetpass" element={<ResetPass />} />
           <Route path="/signup" element={<SignUp />} />

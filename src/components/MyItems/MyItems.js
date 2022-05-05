@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
@@ -12,9 +13,25 @@ const MyItems = () => {
     const [deleteCount, setDeleteCount] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myitems?email=${user.email}`)
+        fetch(`http://localhost:5000/myitems?email=${user.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("jotToken")}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setItems(data));
+            .then(data => {
+                if (data.message === "unauthorized access" || data.message === "forbidden access") {
+                    signOut(auth);
+                    navigate('/signin')
+                }
+                setItems(data);
+            })
+            .catch(error => {
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/signin')
+                }
+            });
     }, [user, deleteCount]);
 
     const handleDelete = (id, name) => {

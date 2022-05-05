@@ -3,16 +3,18 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router';
 import google from '../../images/icons/google.png';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 
 const GoogelBtn = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [token] = useToken(googleUser);
 
     const navigate = useNavigate();
     let location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (googleUser && !googleLoading) {
+        if (token && !googleLoading) {
             navigate(from, { replace: true });
         }
     }, [googleUser]);
