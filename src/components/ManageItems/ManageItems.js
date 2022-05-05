@@ -9,10 +9,18 @@ const ManageItems = () => {
     const [page, setPage] = useState(0);
     const [numberOfItems, setNumberOfItems] = useState(9);
     const [numberOfPage] = usePageCount(numberOfItems);
-    const [items] = useGetItems(page, numberOfItems);
+    const [deleteCount, setDeleteCount] = useState(0);
+    const [items] = useGetItems(page, numberOfItems, deleteCount);
 
-    const handleDelete = _id => {
-
+    const handleDelete = (id, name) => {
+        const proceed = window.confirm(`are you sure? you want to delete ${name}`);
+        if (proceed) {
+            fetch(`http://localhost:5000/deleteitem/${id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => setDeleteCount(deleteCount + 1));
+        }
     }
 
     return (
@@ -23,7 +31,7 @@ const ManageItems = () => {
                         items.map(item => <Card key={item._id} item={item}>
                             <button onClick={() => navigate(`/inventory/${item._id}`)} className="my-2 py-2 px-3 w-full bg-blue-500 text-[22px] text-white font-semibold border-2 border-blue-500 duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-lg">Update</button>
 
-                            <button onClick={() => handleDelete(item._id)} className="my-2 py-2 px-3 w-full bg-red-500 text-[22px] text-white font-semibold border-2 border-red-500 duration-300 ease-in-out hover:bg-transparent hover:text-red-500 rounded-lg">Delete</button>
+                            <button onClick={() => handleDelete(item._id, item.name)} className="my-2 py-2 px-3 w-full bg-red-500 text-[22px] text-white font-semibold border-2 border-red-500 duration-300 ease-in-out hover:bg-transparent hover:text-red-500 rounded-lg">Delete</button>
                         </Card>)
                     }
                 </div>

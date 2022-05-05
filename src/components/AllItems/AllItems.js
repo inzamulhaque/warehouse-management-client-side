@@ -9,7 +9,8 @@ const AllItems = () => {
     const [page, setPage] = useState(0);
     const [numberOfItems, setNumberOfItems] = useState(9);
     const [numberOfPage] = usePageCount(numberOfItems);
-    const [items] = useGetItems(page, numberOfItems);
+    const [deleteCount, setDeleteCount] = useState(0);
+    const [items] = useGetItems(page, numberOfItems, deleteCount);
     return (
         <>
             <div className="container mx-auto">
