@@ -11,6 +11,7 @@ import ResetPass from './components/SignForms/ResetPass';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import AddItem from './components/AddItem/AddItem';
 import ManageItems from './components/ManageItems/ManageItems';
+import AllItems from './components/AllItems/AllItems';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         {/* add routes */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/alltems" element={<AllItems />} />
           <Route path="/manageitems" element={<RequireAuth>
             <ManageItems />
           </RequireAuth>} />

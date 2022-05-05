@@ -46,6 +46,11 @@ const Header = () => {
                             <li className="py-2 px-3">
                                 <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/">Home</NavLink>
                             </li>
+                            {!user &&
+                                <li className="py-2 px-3">
+                                    <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/alltems">All Items</NavLink>
+                                </li>
+                            }
                             {user &&
                                 <>
                                     <li className="py-2 px-3">
@@ -59,6 +64,9 @@ const Header = () => {
                                     </li>
                                 </>
                             }
+                            <li className="py-2 px-3">
+                                <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/about">About Me</NavLink>
+                            </li>
                             <li className="py-2 px-3">
                                 <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/blogs">Blogs</NavLink>
                             </li>

@@ -4,17 +4,12 @@ import useGetItems from '../../hooks/useGetItems';
 import usePageCount from '../../hooks/usePageCount';
 import Card from '../Card/Card';
 
-const ManageItems = () => {
+const AllItems = () => {
     const navigate = useNavigate();
     const [page, setPage] = useState(0);
     const [numberOfItems, setNumberOfItems] = useState(9);
     const [numberOfPage] = usePageCount(numberOfItems);
     const [items] = useGetItems(page, numberOfItems);
-
-    const handleDelete = _id => {
-
-    }
-
     return (
         <>
             <div className="container mx-auto">
@@ -22,8 +17,6 @@ const ManageItems = () => {
                     {
                         items.map(item => <Card key={item._id} item={item}>
                             <button onClick={() => navigate(`/inventory/${item._id}`)} className="my-2 py-2 px-3 w-full bg-blue-500 text-[22px] text-white font-semibold border-2 border-blue-500 duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-lg">Update</button>
-
-                            <button onClick={() => handleDelete(item._id)} className="my-2 py-2 px-3 w-full bg-red-500 text-[22px] text-white font-semibold border-2 border-red-500 duration-300 ease-in-out hover:bg-transparent hover:text-red-500 rounded-lg">Delete</button>
                         </Card>)
                     }
                 </div>
@@ -44,4 +37,4 @@ const ManageItems = () => {
     );
 };
 
-export default ManageItems;
+export default AllItems;
