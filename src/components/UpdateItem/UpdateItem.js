@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateItem = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const [updateCount, setUpdateCount] = useState(0);
     const [item, setItem] = useState({});
     const [info, setInfo] = useState({
         email: "",
@@ -21,7 +23,7 @@ const UpdateItem = () => {
                 setItem(data);
                 setInfo(data);
             });
-    }, [id]);
+    }, [id, updateCount]);
 
     const handleChange = event => {
         const name = event.target.name;
@@ -31,6 +33,19 @@ const UpdateItem = () => {
 
     const handleUpdate = event => {
         event.preventDefault();
+
+        fetch(`http://localhost:5000/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(info)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUpdateCount(updateCount + 1);
+                navigate("/manageitems");
+            });
     }
 
     return (
