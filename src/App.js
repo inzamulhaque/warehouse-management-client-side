@@ -14,6 +14,7 @@ import ManageItems from './components/ManageItems/ManageItems';
 import AllItems from './components/AllItems/AllItems';
 import UpdateItem from './components/UpdateItem/UpdateItem';
 import UpdateQty from './components/UpdateQty/UpdateQty';
+import MyItems from './components/MyItems/MyItems';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           </RequireAuth>} />
           <Route path="/inventoryQty/:id" element={<RequireAuth>
             <UpdateQty />
+          </RequireAuth>} />
+          <Route path="/myitems" element={<RequireAuth>
+            <MyItems />
           </RequireAuth>} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/resetpass" element={<ResetPass />} />
