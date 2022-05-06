@@ -65,7 +65,7 @@ const Header = () => {
                                 </>
                             }
                             <li className="py-2 px-3">
-                                <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/about">About Me</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/oders">Oders</NavLink>
                             </li>
                             <li className="py-2 px-3">
                                 <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/blogs">Blogs</NavLink>

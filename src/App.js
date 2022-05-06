@@ -17,6 +17,7 @@ import UpdateItem from './components/UpdateItem/UpdateItem';
 import UpdateQty from './components/UpdateQty/UpdateQty';
 import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound';
+import Orders from './components/Orders/Orders';
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
           </RequireAuth>} />
           <Route path="/inventoryQty/:id" element={<RequireAuth>
             <UpdateQty />
+          </RequireAuth>} />
+          <Route path="/oders" element={<RequireAuth>
+            <Orders />
           </RequireAuth>} />
           <Route path="/myitems" element={<RequireAuthMyItems>
             <MyItems />
