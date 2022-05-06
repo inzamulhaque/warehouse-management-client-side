@@ -1,6 +1,7 @@
 import React from 'react';
 import JsVsNodeJS from './JsVsNodeJS';
 import NodeVsMongo0db from './NodeVsMongo0db';
+import SqlVsNoSql from './SqlVsNoSql';
 
 const Blogs = () => {
     return (
@@ -12,6 +13,9 @@ const Blogs = () => {
                     </div>
                     <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto w-full">
                         <NodeVsMongo0db />
+                    </div>
+                    <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto w-full">
+                        <SqlVsNoSql />
                     </div>
                 </div>
             </div>
