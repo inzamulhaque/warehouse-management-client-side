@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Orders = () => {
+    const navigate = useNavigate();
 
     const handleOrders = event => {
         event.preventDefault();
@@ -42,6 +44,9 @@ const Orders = () => {
 
                         <button type="submit" className='py-2 px-7 bg-blue-500 text-white font-bold text-[22px] border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 duration-500 ease-in-out rounded-md mt-3 block md:inline-block mx-auto'>Add Orders</button>
                     </form>
+                    <p className="text-[18px] font-medium m-3 md:mx-5 lg:mx-7 text-orange-500 cursor-pointer" onClick={() => navigate("/showorders")}>
+                        Show Orders
+                    </p>
                 </div>
             </div>
         </>
