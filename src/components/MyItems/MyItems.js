@@ -13,7 +13,7 @@ const MyItems = () => {
     const [deleteCount, setDeleteCount] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myitems?email=${user.email}`, {
+        fetch(`https://assignment-11-phero.herokuapp.com/myitems?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("jotToken")}`
             }
@@ -37,7 +37,7 @@ const MyItems = () => {
     const handleDelete = (id, name) => {
         const proceed = window.confirm(`are you sure? you want to delete ${name}`);
         if (proceed) {
-            fetch(`http://localhost:5000/deleteitem/${id}`, {
+            fetch(`https://assignment-11-phero.herokuapp.com/deleteitem/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -48,7 +48,7 @@ const MyItems = () => {
     return (
         <>
             <div className="container mx-auto">
-                <button className="bg-blue-500 my-2 text-white py-2 px-3 block font-semibold rounded-lg">{user?.email}</button>
+                <button onClick={() => navigate("/manageitems")} className="bg-blue-500 my-2 text-white py-2 px-3 block font-semibold rounded-lg">{user?.email}</button>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {
                         items.map(item => <Card key={item._id} item={item}>

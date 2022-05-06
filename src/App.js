@@ -19,6 +19,7 @@ import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound';
 import Orders from './components/Orders/Orders';
 import ShowOrders from './components/Orders/ShowOrders';
+import Blogs from './components/Blogs/Blogs';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/resetpass" element={<ResetPass />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

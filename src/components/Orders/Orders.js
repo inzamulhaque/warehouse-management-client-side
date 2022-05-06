@@ -13,7 +13,7 @@ const Orders = () => {
 
         const orderData = { name, itemName, email, quantity };
 
-        fetch("http://localhost:5000/addorders", {
+        fetch("https://assignment-11-phero.herokuapp.com/addorders", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

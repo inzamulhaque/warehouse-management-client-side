@@ -20,7 +20,7 @@ const AddItem = () => {
 
         const item = { email, name, sname, category, price, quantity, image, description };
 
-        fetch("http://localhost:5000/additem", {
+        fetch("https://assignment-11-phero.herokuapp.com/additem", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

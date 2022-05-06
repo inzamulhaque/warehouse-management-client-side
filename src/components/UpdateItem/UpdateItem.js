@@ -12,7 +12,7 @@ const UpdateItem = () => {
     const handleUpdate = event => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://assignment-11-phero.herokuapp.com/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

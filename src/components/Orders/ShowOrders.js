@@ -8,7 +8,7 @@ const ShowOrders = () => {
     const [countDelete, setCountDelete] = useState(0);
 
     useEffect(() => {
-        fetch("http://localhost:5000/getorders")
+        fetch("https://assignment-11-phero.herokuapp.com/getorders")
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [countDelete]);
@@ -16,7 +16,7 @@ const ShowOrders = () => {
     const handleDeleteOrder = (id, email) => {
         const proceed = window.confirm(`Are You Sure? You want to delete ${email}`);
         if (proceed) {
-            fetch(`http://localhost:5000/deleteorder/${id}`, {
+            fetch(`https://assignment-11-phero.herokuapp.com/deleteorder/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

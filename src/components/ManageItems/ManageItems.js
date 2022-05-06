@@ -16,7 +16,7 @@ const ManageItems = () => {
     const handleDelete = (id, name) => {
         const proceed = window.confirm(`are you sure? you want to delete ${name}`);
         if (proceed) {
-            fetch(`http://localhost:5000/deleteitem/${id}`, {
+            fetch(`https://assignment-11-phero.herokuapp.com/deleteitem/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

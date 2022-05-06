@@ -13,7 +13,7 @@ const useGetById = (id, updateCount) => {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`)
+        fetch(`https://assignment-11-phero.herokuapp.com/item/${id}`)
             .then(res => res.json())
             .then(data => {
                 setInfo(data);

@@ -5,7 +5,7 @@ const useToken = (user) => {
     const email = user?.user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/signin`, {
+        fetch(`https://assignment-11-phero.herokuapp.com/signin`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
