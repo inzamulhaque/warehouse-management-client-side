@@ -1,5 +1,6 @@
 import React from 'react';
 import JsVsNodeJS from './JsVsNodeJS';
+import JwtQA from './JwtQA';
 import NodeVsMongo0db from './NodeVsMongo0db';
 import SqlVsNoSql from './SqlVsNoSql';
 
@@ -16,6 +17,9 @@ const Blogs = () => {
                     </div>
                     <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto w-full">
                         <SqlVsNoSql />
+                    </div>
+                    <div className="my-2 py-2 px-3 card dark:bg-white h-100 mx-auto w-full">
+                        <JwtQA />
                     </div>
                 </div>
             </div>
