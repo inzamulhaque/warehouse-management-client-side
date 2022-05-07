@@ -4,10 +4,13 @@ import MyCarousel from './MyCarousel';
 import Testimonilas from './Testimonilas';
 import MyChart from './MyChart';
 import SpecialItems from './SpecialItems';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Home = () => {
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"Home"} />
             {/* add Carousel */}
             <MyCarousel />
             {/* add banner for tab and phone */}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useGetById from '../../hooks/useGetById';
+import PageTitle from '../PageTitle/PageTitle';
 
 const UpdateItem = () => {
     const { id } = useParams();
@@ -28,6 +29,9 @@ const UpdateItem = () => {
 
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"Update Item"} />
+
             <div className="mt-3 p-3 px-5 container mx-auto w-full md:3/4 lg:w-1/2 card dark:bg-white">
                 <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Update Item</h3>
 

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Card from '../Card/Card';
 import UpdateQty from '../Card/UpdateQty';
+import PageTitle from '../PageTitle/PageTitle';
 
 const MyItems = () => {
     const navigate = useNavigate();
@@ -47,6 +48,9 @@ const MyItems = () => {
 
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"My Items"} />
+
             <div className="container mx-auto">
                 <button onClick={() => navigate("/manageitems")} className="bg-blue-500 my-2 text-white py-2 px-3 block font-semibold rounded-lg">{user?.email}</button>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

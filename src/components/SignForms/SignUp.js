@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import GoogelBtn from './GoogelBtn';
 import { toast } from 'react-toastify';
 import { signOut } from 'firebase/auth';
+import PageTitle from '../PageTitle/PageTitle';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -76,7 +77,9 @@ const SignUp = () => {
     }
 
     return (
-        <>
+        <>{/* add page tilte */}
+            <PageTitle title={"SignUp"} />
+
             <div className="mt-3 p-3 px-5 container mx-auto w-full md:3/4 lg:w-1/2 card dark:bg-white">
                 <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Sign Up</h3>
                 {/* Sign Up Form */}

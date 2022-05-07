@@ -3,6 +3,7 @@ import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hook
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
+import PageTitle from '../PageTitle/PageTitle';
 import GoogelBtn from './GoogelBtn';
 
 const SignIn = () => {
@@ -34,6 +35,9 @@ const SignIn = () => {
 
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"SignIn"} />
+
             <div className="mt-3 p-3 px-5 container mx-auto w-full md:3/4 lg:w-1/2 card dark:bg-white">
                 <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Sign In</h3>
                 {/* Sign In Form */}

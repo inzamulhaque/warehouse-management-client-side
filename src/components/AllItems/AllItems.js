@@ -4,6 +4,7 @@ import useGetItems from '../../hooks/useGetItems';
 import usePageCount from '../../hooks/usePageCount';
 import Card from '../Card/Card';
 import UpdateQty from '../Card/UpdateQty';
+import PageTitle from '../PageTitle/PageTitle';
 
 const AllItems = () => {
     const navigate = useNavigate();
@@ -14,6 +15,9 @@ const AllItems = () => {
     const [items] = useGetItems(page, numberOfItems, deleteCount);
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"All Items"} />
+
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {

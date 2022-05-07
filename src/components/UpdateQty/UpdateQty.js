@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useGetById from '../../hooks/useGetById';
+import PageTitle from '../PageTitle/PageTitle';
 
 const UpdateQty = () => {
     const { id } = useParams();
@@ -50,6 +51,9 @@ const UpdateQty = () => {
 
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"Update Item Quantity"} />
+
             <div className="mt-3 p-3 px-5 container mx-auto w-full md:3/4 lg:w-1/2 card dark:bg-white">
                 <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Update Quantity</h3>
                 <div className="p-3 md:px-5 lg:px-7">

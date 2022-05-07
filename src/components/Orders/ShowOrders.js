@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../PageTitle/PageTitle';
 
 
 const ShowOrders = () => {
@@ -26,6 +27,9 @@ const ShowOrders = () => {
 
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"All Orders"} />
+
             <div className="mx-auto container">
                 <table className="table-auto border-collapse border-2 border-slate-400 w-full dark:text-white">
                     <thead>

@@ -1,10 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PageTitle from '../PageTitle/PageTitle';
 
 const NotFound = () => {
     const navigate = useNavigate();
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"404"} />
+
             <div className="w-full md:w-3/4 lg:w-1/2 mx-auto card dark:bg-white text-blue-500 my-3 p-3 text-center min-h-[300px] flex justify-center items-center">
                 <div>
                     <h3 className="text-[25px] font-bold">

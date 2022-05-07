@@ -3,6 +3,7 @@ import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import PageTitle from '../PageTitle/PageTitle';
 
 const ResetPass = () => {
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
@@ -25,6 +26,9 @@ const ResetPass = () => {
 
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"Reset Password"} />
+
             <div className="mt-3 p-3 px-5 container mx-auto w-full md:3/4 lg:w-1/2 card dark:bg-white">
                 <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">
                     Reset Password

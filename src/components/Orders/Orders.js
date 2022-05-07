@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Orders = () => {
     const navigate = useNavigate();
@@ -29,6 +30,9 @@ const Orders = () => {
 
     return (
         <>
+            {/* add page tilte */}
+            <PageTitle title={"Add Order"} />
+
             <div className="container mx-auto">
                 <div className="mt-3 w-full md:w-3/4 lg:w-1/2 mx-auto card dark:bg-white py-2">
                     <h3 className="my-2 text-[25px] text-center font-bold text-blue-500">Add Orders</h3>
