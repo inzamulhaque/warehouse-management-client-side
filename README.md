@@ -12,6 +12,7 @@ This is warehouse management full-stack website. This website using ReactJS, tai
 * Stock Management
 * User Authorization
 * Blogs
+* Dark Mode
 
 ### Technologys
 
