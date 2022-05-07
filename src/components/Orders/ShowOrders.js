@@ -30,7 +30,7 @@ const ShowOrders = () => {
             {/* add page tilte */}
             <PageTitle title={"All Orders"} />
 
-            <div className="mx-auto container">
+            <div className="mx-auto container  overflow-x-scroll md:overflow-hidden">
                 <table className="table-auto border-collapse border-2 border-slate-400 w-full dark:text-white">
                     <thead>
                         <tr>
